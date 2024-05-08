@@ -13,7 +13,7 @@ def fetch_numbers(number_type):
         url = f"http://20.244.56.144/test/{number_type}"
         headers = {"Authorization": f"Bearer {access_token}"}
         response = requests.get(url, headers=headers)
-        response.raise_for_status()  # Raise exception for non-2xx status codes
+        response.raise_for_status()
         return response.json().get('numbers', [])
     except requests.exceptions.RequestException as e:
         app.logger.error(f"Error fetching numbers: {e}")
